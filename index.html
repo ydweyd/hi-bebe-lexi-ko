@@ -1,0 +1,240 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gusto Mo Ba Ako?</title>
+    <style>
+        body {
+            background-color: #ffe4e1; /* Light pink */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #ff69b4; /* Hot pink */
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .container {
+            margin: 50px auto;
+            padding: 20px;
+            border: 5px solid #ff1493; /* Deep pink */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #fff0f5; /* Lavender blush */
+            max-width: 500px;
+        }
+        h1, p {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        button {
+            background-color: #ff1493; /* Deep pink */
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #ff69b4; /* Hot pink */
+        }
+        button1 {
+            background-color: #7F00FF; /* Deep pink */
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button1:hover {
+            background-color: #7F00FF; /* Hot pink */
+        }
+        .hidden {
+            display: none;
+        }
+        .emoji-pop {
+            font-size: 50px;
+            animation: pop 0.5s ease-in-out;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Warning -->
+    <div class="container" id="warning">
+        <p>⚠️ Basahin ng maigi bago i-click ang "Next"! ⚠️</p>
+        <button id="warningBtn">Okay, Got It!</button>
+    </div>
+
+    <!-- Part 1: Audio Prompt -->
+    <div class="container hidden" id="part1">
+        <p>I-play ang music:</p>
+        <div><iframe width="300" height="60" src="https://vocaroo.com/embed/1bWOjQ5XK82z?autoplay=0" frameborder="0" allow="autoplay"></iframe><br><a href="https://voca.ro/1bWOjQ5XK82z" title="Vocaroo Voice Recorder" target="_blank">View on Vocaroo &gt;&gt;</a></div>
+        <div>
+            <button id="nextPart1Btn">Next</button>
+        </div>
+    </div>
+
+    <!-- Part 2: Damo Kaba? -->
+    <div class="container hidden" id="part2">
+        <p>Damo kaba?</p>
+        <div>
+            <button1 id="bakitBtn">Bakit?</button>
+        </div>
+    </div>
+
+    <!-- Part 3: Kasi ang ganDAMO -->
+    <div class="container hidden" id="part3">
+        <p>Kasi ang ganDAMO!! </p>
+        <div>
+            <button id="nextPart3Btn">Next</button>
+        </div>
+    </div>
+
+    <!-- Part 4: Invite -->
+    <div class="container hidden" id="part4">
+        <p>Payag na kong magkaroon ako ng ASTHMA.</p>
+        <div>
+            <button1 id="bakitAgainBtn">Bakit?</button1>
+        </div>
+    </div>
+
+    <!-- Part 4.1: LIPS MO yung NEBULIZER ko -->
+    <div class="container hidden" id="part4_1">
+        <p>Basta LIPS MO yung NEBULIZER ko.</p>
+        <div>
+            <button id="nextPart4_1Btn">Next</button>
+        </div>
+    </div>
+
+    <!-- Part 5: Question -->
+    <div class="container hidden" id="part5">
+        <h2>Lagi mo tatandaan na mamahalin kita 4ever.❤️</h2>
+        <h1>Ikaw mamahalin mo din ba ako 4ever?!?!?</h1>
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+
+    <!-- Part 6: Kapwing Video -->
+    <div class="container hidden" id="part6">
+        <div style="height: 0; padding-bottom: calc(56.25%); position:relative; width: 100%;">
+            <iframe allow="autoplay; gyroscope;" allowfullscreen height="100%" referrerpolicy="strict-origin" 
+                    src="https://www.kapwing.com/e/67690900153c98f44373df3e" 
+                    style="border:0; height:100%; left:0; overflow:hidden; position:absolute; top:0; width:100%" 
+                    title="Embedded content made on Kapwing" width="100%">
+            </iframe>
+        </div>
+        <button id="nextPart6Btn">Next</button>
+    </div>
+
+    <!-- Part 7: Awts sakit haha -->
+    <div class="container hidden" id="part7">
+        <p>Awts sakit haha 😩</p>
+        <button id="restartBtn">Restart</button>
+    </div>
+
+    <!-- Part 8: Thank You -->
+    <div class="container hidden" id="part8">
+        <p>Thank you dahil gusto mo din ako! ❤️</p>
+        <button id="restartBtn">Restart</button>
+    </div>
+
+    <!-- Part 9: Talo man sa color game -->
+    <div class="container hidden" id="colorGamePart">
+        <p>Talo man sa color game PANALO naman sa puso mo!</p>
+        <p>Thank you dahil mahal mo din akooo I LOVE YOU!!!</p>
+        <button id="restartBtnColorGame">Restart</button>
+    </div>
+
+    <script>
+        // Function to dismiss the warning and show the first part
+        document.getElementById('warningBtn').addEventListener('click', function() {
+            document.getElementById('warning').classList.add('hidden');
+            document.getElementById('part1').classList.remove('hidden');
+        });
+
+        // Show the next part and create emoji pop
+        document.getElementById('nextPart1Btn').addEventListener('click', function() {
+            document.getElementById('part1').classList.add('hidden');
+            document.getElementById('part2').classList.remove('hidden');
+            showEmoji('😊');
+        });
+
+        document.getElementById('bakitBtn').addEventListener('click', function() {
+            document.getElementById('part2').classList.add('hidden');
+            document.getElementById('part3').classList.remove('hidden');
+            showEmoji('🤔');
+        });
+
+        document.getElementById('nextPart3Btn').addEventListener('click', function() {
+            document.getElementById('part3').classList.add('hidden');
+            document.getElementById('part4').classList.remove('hidden');
+            showEmoji('😉');
+        });
+
+        document.getElementById('bakitAgainBtn').addEventListener('click', function() {
+            document.getElementById('part4').classList.add('hidden');
+            document.getElementById('part4_1').classList.remove('hidden');
+            showEmoji('💋');
+        });
+
+        document.getElementById('nextPart4_1Btn').addEventListener('click', function() {
+            document.getElementById('part4_1').classList.add('hidden');
+            document.getElementById('part5').classList.remove('hidden');
+        });
+
+        // Handle the "Yes" and "No" clicks
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            alert("Buo na ang Pasko ko!"); // Pop-up when "Yes" is clicked
+            document.getElementById('part5').classList.add('hidden');
+            document.getElementById('colorGamePart').classList.remove('hidden');  // Goes to the color game part
+        });
+
+        document.getElementById('noBtn').addEventListener('click', function() {
+            alert("GRABE KA NAMAN!!!!"); // Pop-up when "No" is clicked
+            document.getElementById('part5').classList.add('hidden');
+            document.getElementById('part6').classList.remove('hidden');
+        });
+
+        // Proceed to Part 7 after the video in Part 6
+        document.getElementById('nextPart6Btn').addEventListener('click', function() {
+            document.getElementById('part6').classList.add('hidden');
+            document.getElementById('part7').classList.remove('hidden');
+        });
+
+        // Restart the website from color game part
+        document.getElementById('restartBtnColorGame').addEventListener('click', function() {
+            location.reload();
+        });
+
+        // Restart the website from any other part
+        document.getElementById('restartBtn').addEventListener('click', function() {
+            location.reload();
+        });
+
+        // Function to create emoji pop
+        function showEmoji(emoji) {
+            const emojiElement = document.createElement('div');
+            emojiElement.classList.add('emoji-pop');
+            emojiElement.innerText = emoji;
+            document.body.appendChild(emojiElement);
+            setTimeout(() => emojiElement.remove(), 1000);
+        }
+    </script>
+</body>
+</html>
